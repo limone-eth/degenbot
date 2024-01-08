@@ -1,11 +1,11 @@
-import {Request, Response} from "express";
-import {AlchemyWebhookEvent} from "../../utils/alchemy";
-import {constants} from "../../constants";
-import {decodeSwapEvent} from "../../utils/smart-contracts/decode-events";
-import {getFarcasterIdentity} from "../../utils/web3-bio";
-import {providers} from "ethers";
-import {publishCast} from "../../utils/farcaster";
-import {formatBigNumber, getTransactionUrl} from "../../utils";
+import { providers } from "ethers";
+import { Request, Response } from "express";
+import { constants } from "../../constants";
+import { formatBigNumber, getTransactionUrl } from "../../utils";
+import { AlchemyWebhookEvent } from "../../utils/alchemy";
+import { publishCast } from "../../utils/farcaster";
+import { decodeSwapEvent } from "../../utils/smart-contracts/decode-events";
+import { getFarcasterIdentity } from "../../utils/web3-bio";
 
 export async function processPoolSwapEvent(
   req: Request,
@@ -62,11 +62,11 @@ export async function processPoolSwapEvent(
 
   const text = `@${farcasterIdentity} swapped ${
     amountIn === tokensAmount
-      ? `${formattedTokensAmount} $POINTS`
+      ? `${formattedTokensAmount} $DEGEN`
       : `${formattedWethAmount} $WETH`
   } for ${
     amountOut === tokensAmount
-      ? `${formattedTokensAmount} $POINTS`
+      ? `${formattedTokensAmount} $DEGEN`
       : `${formattedWethAmount} $WETH`
   }`;
 

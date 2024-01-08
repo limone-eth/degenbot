@@ -1,10 +1,10 @@
-import {constants} from "../constants";
+import { constants } from "../constants";
 import {
   getPoolPriceInfo,
   getTokenInfo,
   getTokenPriceInfo,
 } from "../utils/dextools";
-import {publishCast} from "../utils/farcaster";
+import { publishCast } from "../utils/farcaster";
 
 export const publishTokenStats = async (): Promise<void> => {
   const tokenInfo = await getTokenInfo(constants.TOKEN_ADDRESS);
@@ -13,7 +13,7 @@ export const publishTokenStats = async (): Promise<void> => {
     constants.TOKEN_UNISWAP_POOL_ADDRESS
   );
 
-  const text = `📈 $points stats: \n\n- market cap -> $${(
+  const text = `📈 $degen stats: \n\n- market cap -> $${(
     tokenPriceInfo.price * tokenInfo.totalSupply
   ).toLocaleString()}\n\n- volume (last 24h) -> $${poolPriceInfo.volume24h.toLocaleString()}\n\n- holders -> ${
     tokenInfo.holders

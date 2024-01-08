@@ -1,7 +1,7 @@
-import {constants} from "../constants";
-import {fetchTokenBalancesProfiles} from "../utils/airstack/functions/fetch-token-holders";
-import {getTokenPriceInfo} from "../utils/dextools";
-import {publishCast, replyToCast} from "../utils/farcaster";
+import { constants } from "../constants";
+import { fetchTokenBalancesProfiles } from "../utils/airstack/functions/fetch-token-holders";
+import { getTokenPriceInfo } from "../utils/dextools";
+import { publishCast, replyToCast } from "../utils/farcaster";
 
 export const publishFarcasterLeaderboard = async (topK = 10) => {
   const tokenPriceInfo = await getTokenPriceInfo(constants.TOKEN_ADDRESS);
@@ -21,7 +21,7 @@ export const publishFarcasterLeaderboard = async (topK = 10) => {
       index: index + 1,
     }));
 
-  const text1 = `top 10 $points 🐳 on farcaster\n\n🥇 @${leaderboard[0].name}: ${leaderboard[0].amount} ($${leaderboard[0].dollarsAmount})\n\n🥈 @${leaderboard[1].name}: ${leaderboard[1].amount} ($${leaderboard[1].dollarsAmount})\n\n🥉 @${leaderboard[2].name}: ${leaderboard[2].amount} ($${leaderboard[2].dollarsAmount})\n\ncontinues...👇`;
+  const text1 = `top 10 $degen 🐳 on farcaster\n\n🥇 @${leaderboard[0].name}: ${leaderboard[0].amount} ($${leaderboard[0].dollarsAmount})\n\n🥈 @${leaderboard[1].name}: ${leaderboard[1].amount} ($${leaderboard[1].dollarsAmount})\n\n🥉 @${leaderboard[2].name}: ${leaderboard[2].amount} ($${leaderboard[2].dollarsAmount})\n\ncontinues...👇`;
 
   const text2 = getTextForLeaderboard(
     leaderboard.slice(3, 6),
