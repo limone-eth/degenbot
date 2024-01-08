@@ -1,7 +1,7 @@
-import { constants } from "../constants";
-import { fetchTokenBalancesProfiles } from "../utils/airstack/functions/fetch-token-holders";
-import { getTokenPriceInfo } from "../utils/dextools";
-import { publishCast, replyToCast } from "../utils/farcaster";
+import {constants} from "../constants";
+import {fetchTokenBalancesProfiles} from "../utils/airstack/functions/fetch-token-holders";
+import {getTokenPriceInfo} from "../utils/dextools";
+import {publishCast, replyToCast} from "../utils/farcaster";
 
 export const publishFarcasterLeaderboard = async (topK = 10) => {
   const tokenPriceInfo = await getTokenPriceInfo(constants.TOKEN_ADDRESS);

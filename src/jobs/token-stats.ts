@@ -1,10 +1,10 @@
-import { constants } from "../constants";
+import {constants} from "../constants";
 import {
   getPoolPriceInfo,
   getTokenInfo,
   getTokenPriceInfo,
 } from "../utils/dextools";
-import { publishCast } from "../utils/farcaster";
+import {publishCast} from "../utils/farcaster";
 
 export const publishTokenStats = async (): Promise<void> => {
   const tokenInfo = await getTokenInfo(constants.TOKEN_ADDRESS);
