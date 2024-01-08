@@ -6,13 +6,9 @@ export const constants = {
   POOL_SWAP_EVENT_TOPIC:
     "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67",
   WRAPPED_ETH_SMART_CONTRACT_ADDRESS:
-    "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-  // the address of the token you want to track
-  TOKEN_ADDRESS: "0xd7c1eb0fe4a30d3b2a846c04aa6300888f087a5f",
-  // the decimals of the token you want to track
+    "0x4200000000000000000000000000000000000006",
+  TOKEN_ADDRESS: "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
   TOKEN_DECIMALS: 18,
-  // the symbol of the token you want to track
   TOKEN_SYMBOL: "DEGEN",
-  // the address of the Uniswap V3 Pool you want to track (for swaps)
-  TOKEN_UNISWAP_POOL_ADDRESS: "0xa424817985051ccda51eff2dc7998b5d68079215",
+  TOKEN_UNISWAP_POOL_ADDRESS: "0xc9034c3e7f58003e6ae0c8438e7c8f4598d5acaa",
 };
