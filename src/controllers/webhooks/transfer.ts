@@ -40,7 +40,7 @@ export async function processTransferEvent(
 
   const txUrl = getTransactionUrl(
     logsData.transaction.hash,
-    TransactionUrlWebsite.ETHERSCAN,
+    TransactionUrlWebsite.ZAPPER,
     Network.BASE
   );
 

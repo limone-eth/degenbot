@@ -37,7 +37,7 @@ export async function processPoolSwapEvent(
     return;
   }
 
-  const txUrl = getTransactionUrl(logsData.transaction.hash, TransactionUrlWebsite.ETHERSCAN, Network.BASE);
+  const txUrl = getTransactionUrl(logsData.transaction.hash, TransactionUrlWebsite.ZAPPER, Network.BASE);
 
   // get transaction receipt to extract the sender
   const provider = new providers.JsonRpcProvider(process.env.ALCHEMY_RPC_URL);
