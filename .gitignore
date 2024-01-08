@@ -1,0 +1,8 @@
+node_modules/
+.npm
+.eslintcache
+.env
+.idea
+lib
+dist
+.serverless
