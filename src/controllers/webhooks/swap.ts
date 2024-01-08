@@ -62,11 +62,11 @@ export async function processPoolSwapEvent(
 
   const text = `@${farcasterIdentity} swapped ${
     amountIn === tokensAmount
-      ? `${formattedTokensAmount} $DEGEN`
+      ? `${formattedTokensAmount} $${constants.TOKEN_SYMBOL}`
       : `${formattedWethAmount} $WETH`
   } for ${
     amountOut === tokensAmount
-      ? `${formattedTokensAmount} $DEGEN`
+      ? `${formattedTokensAmount} $${constants.TOKEN_SYMBOL}`
       : `${formattedWethAmount} $WETH`
   }`;
 
