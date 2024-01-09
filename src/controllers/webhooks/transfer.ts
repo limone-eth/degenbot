@@ -7,7 +7,6 @@ import {decodeTransferEvent} from "../../utils/smart-contracts/decode-events";
 import {getFarcasterIdentity} from "../../utils/web3-bio";
 import {publishCast} from "../../utils/farcaster";
 
-// TODO: introduce support for transfer events
 export async function processTransferEvent(
   req: Request,
   res: Response
@@ -32,9 +31,9 @@ export async function processTransferEvent(
 
   if (!logsData) {
     console.log(
-      `No Swap Event found in webhook event at ${new Date().toISOString()}`
+      `No Transfer Event found in webhook event at ${new Date().toISOString()}`
     );
-    res.json({message: "No Swap Event found in webhook event"});
+    res.json({message: "No Transfer Event found in webhook event"});
     return;
   }
 
