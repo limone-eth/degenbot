@@ -34,7 +34,7 @@ app.listen(process.env.PORT || 3000, () => {
 });
 
 // run every 1 hour
-cron.schedule("0 * * * *", async () => {
+cron.schedule("0 */3 * * *", async () => {
   console.log("Elaborating Tokens stats...");
   try {
     await publishTokenStats();
