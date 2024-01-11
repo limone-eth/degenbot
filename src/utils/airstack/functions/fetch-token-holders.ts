@@ -8,7 +8,7 @@ export const TokenBalancesQuery = gql`
     TokenBalances(
       input: {
         filter: {tokenAddress: {_eq: $address}}
-        blockchain: ethereum
+        blockchain: base
         limit: 200
         order: {}
       }
