@@ -43,14 +43,3 @@ cron.schedule("0 */3 * * *", async () => {
     await publishTokenStats();
   }
 });
-
-// run every hour at 30 minutes
-cron.schedule("30 */2 * * *", async () => {
-  console.log("Elaborating Farcaster leaderboard");
-  try {
-    await publishFarcasterLeaderboard(10);
-  } catch (e) {
-    console.error(e);
-    await publishFarcasterLeaderboard(10);
-  }
-});
