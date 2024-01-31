@@ -5,7 +5,6 @@ import {processPoolSwapEvent} from "./controllers/webhooks/swap";
 import cron from "node-cron";
 
 import {publishTokenStats} from "./jobs/token-stats";
-import {publishFarcasterLeaderboard} from "./jobs/farcaster-holders-leaderboard";
 import {processTransferEvent} from "./controllers/webhooks/transfer";
 
 // init express app
