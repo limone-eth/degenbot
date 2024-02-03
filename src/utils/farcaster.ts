@@ -1,4 +1,4 @@
-import {NeynarAPIClient} from "@standard-crypto/farcaster-js-neynar";
+import {NeynarAPIClient} from "@neynar/nodejs-sdk";
 
 export const publishCast = async (text: string) => {
   if (!process.env.ENABLE_FARCASTER) {
@@ -11,7 +11,7 @@ export const publishCast = async (text: string) => {
   }
   const signerUuid = process.env.FARCASTER_SIGNER_UUID as string;
   const client = new NeynarAPIClient(process.env.FARCASTER_API_KEY as string);
-  const publishedCast = await client.v2.publishCast(signerUuid, text);
+  const publishedCast = await client.publishCast(signerUuid, text);
 
   console.log(`New cast hash: ${publishedCast.hash}`);
 
@@ -30,7 +30,7 @@ export const replyToCast = async (existingCastHash: string, reply: string) => {
   const signerUuid = process.env.FARCASTER_SIGNER_UUID as string;
   const client = new NeynarAPIClient(process.env.FARCASTER_API_KEY as string);
 
-  const publishedCast = await client.v2.publishCast(signerUuid, reply, {
+  const publishedCast = await client.publishCast(signerUuid, reply, {
     replyTo: existingCastHash,
   });
 

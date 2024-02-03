@@ -26,7 +26,7 @@
   "dependencies": {
     "@airstack/node": "^0.0.5",
     "@apollo/client": "^3.8.8",
-    "@standard-crypto/farcaster-js-neynar": "^2.0.0",
+    "@neynar/nodejs-sdk": "^1.9.4",
     "@types/node-cron": "^3.0.11",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.2",
