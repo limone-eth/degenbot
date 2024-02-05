@@ -7,6 +7,7 @@ export const formatAddress = (address: string) => {
 export enum TransactionUrlWebsite {
   ETHERSCAN = "ETHERSCAN",
   ZAPPER = "ZAPPER",
+  TX_FRAME = "TX_FRAME",
 }
 
 export enum Network {
@@ -28,6 +29,8 @@ export const getTransactionUrl = (
       }/tx/${txHash}`;
     case TransactionUrlWebsite.ZAPPER:
       return `https://zapper.xyz/event/${network}/${txHash}`;
+    case TransactionUrlWebsite.TX_FRAME:
+      return `https://tx-frame.vercel.app/chains/${network}/transactions/${txHash}`;
     default:
       return `${
         network === Network.ETHEREUM
