@@ -1,6 +1,6 @@
 import {NeynarAPIClient} from "@neynar/nodejs-sdk";
 
-export const publishCast = async (text: string) => {
+export const publishCast = async (text: string, embedUrl?: string) => {
   if (!process.env.ENABLE_FARCASTER) {
     return "0x";
   }
@@ -11,7 +11,15 @@ export const publishCast = async (text: string) => {
   }
   const signerUuid = process.env.FARCASTER_SIGNER_UUID as string;
   const client = new NeynarAPIClient(process.env.FARCASTER_API_KEY as string);
-  const publishedCast = await client.publishCast(signerUuid, text);
+  const publishedCast = await client.publishCast(
+    signerUuid,
+    text,
+    embedUrl
+      ? {
+          embeds: [{url: embedUrl}],
+        }
+      : {}
+  );
 
   console.log(`New cast hash: ${publishedCast.hash}`);
 

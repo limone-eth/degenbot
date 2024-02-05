@@ -71,7 +71,7 @@ export async function processPoolSwapEvent(
   }`;
 
   console.log(text, txUrl);
-  const castHash = await publishCast(`${text}\n\n${txUrl}`);
+  const castHash = await publishCast(`${text}`, txUrl);
   console.log(`Successfully published cast ${castHash}`);
 
   res.json({message: "Successfully processed webhook event"});
