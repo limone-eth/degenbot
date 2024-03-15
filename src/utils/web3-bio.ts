@@ -19,10 +19,16 @@ export interface UserProfile {
 export const getFarcasterIdentity = async (
   address: string
 ): Promise<string> => {
-  const data = await fetch(`https://api.web3.bio/profile/farcaster/${address}`);
-  const result = await data.json();
-  if (!result.identity) {
+  try {
+    const data = await fetch(
+      `https://api.web3.bio/profile/farcaster/${address}`
+    );
+    const result = await data.json();
+    if (!result.identity) {
+      return null;
+    }
+    return result.identity;
+  } catch (e) {
     return null;
   }
-  return result.identity;
 };
