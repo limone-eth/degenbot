@@ -5,7 +5,12 @@ import {decodeSwapEvent} from "../../utils/smart-contracts/decode-events";
 import {getFarcasterIdentity} from "../../utils/web3-bio";
 import {providers} from "ethers";
 import {publishCast} from "../../utils/farcaster";
-import {Network, TransactionUrlWebsite, formatBigNumber, getTransactionUrl} from "../../utils";
+import {
+  Network,
+  TransactionUrlWebsite,
+  formatBigNumber,
+  getTransactionUrl,
+} from "../../utils";
 
 export async function processPoolSwapEvent(
   req: Request,
@@ -37,12 +42,16 @@ export async function processPoolSwapEvent(
     return;
   }
 
-  const txUrl = getTransactionUrl(logsData.transaction.hash, TransactionUrlWebsite.ONCEUPON, Network.BASE);
+  const txUrl = getTransactionUrl(
+    logsData.transaction.hash,
+    TransactionUrlWebsite.ONCEUPON,
+    Network.BASE
+  );
 
   // get transaction receipt to extract the sender
   const provider = new providers.JsonRpcProvider(process.env.ALCHEMY_RPC_URL);
   const txReceipt = await provider.getTransactionReceipt(
-    logsData.transaction.hash,
+    logsData.transaction.hash
   );
   const {from} = txReceipt;
 
@@ -71,8 +80,12 @@ export async function processPoolSwapEvent(
   }`;
 
   console.log(text, txUrl);
-  const castHash = await publishCast(`${text}`, txUrl);
-  console.log(`Successfully published cast ${castHash}`);
+  try {
+    const castHash = await publishCast(`${text}`, txUrl);
+    console.log(`Successfully published cast ${castHash}`);
+  } catch (e) {
+    console.error(`Error publishing cast: ${e}`);
+  }
 
   res.json({message: "Successfully processed webhook event"});
 }
